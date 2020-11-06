@@ -36,18 +36,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 125);
+            this.textBox1.Location = new System.Drawing.Point(12, 65);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(395, 313);
+            this.textBox1.Size = new System.Drawing.Size(395, 373);
             this.textBox1.TabIndex = 0;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(413, 125);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.Location = new System.Drawing.Point(413, 65);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(374, 312);
+            this.pictureBox1.Size = new System.Drawing.Size(374, 372);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -56,7 +57,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 98);
+            this.button1.Size = new System.Drawing.Size(193, 47);
             this.button1.TabIndex = 2;
             this.button1.Text = "Run";
             this.button1.UseVisualStyleBackColor = true;

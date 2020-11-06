@@ -15,19 +15,24 @@ namespace Assignment1
     {
 
         Canvas canvas;
+        DrawTo DrawTo;
+        MoveTo MoveTo;
         Bitmap bitmap = new Bitmap(600, 480);
+        
 
         public Form1()
         {
             InitializeComponent();
             canvas = new Canvas(Graphics.FromImage(bitmap));
-
+            DrawTo = new DrawTo(Graphics.FromImage(bitmap));
+            MoveTo = new MoveTo(Graphics.FromImage(bitmap)); ;
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             g.DrawImageUnscaled(bitmap, 0, 0);
+            
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -47,6 +52,18 @@ namespace Assignment1
                 {
                     canvas.DrawRect(23,50);
                 }
+                if (cmd == "drawto")
+                {
+                    
+                    DrawTo.DrawLine(200, 100);
+
+                }
+                if (cmd == "moveto")
+                {
+                    MoveTo.moveto(300, 100);
+
+                }
+
                 textBox1.Text ="";
                 Refresh();
             }
@@ -57,6 +74,7 @@ namespace Assignment1
         {
             button1.Text = "Pressed";
             canvas.DrawRect(23, 50);
+            canvas.DrawCirc(23);
             Refresh();
         }
     }

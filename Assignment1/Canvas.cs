@@ -13,18 +13,18 @@ namespace Assignment1
         Pen pen;
         int xPos, yPos;
 
-        public Canvas(Graphics g)
+        public Canvas(Graphics gin)
         {
-            this.g = g;
-            xPos = yPos = 10;
+            g = gin;
+            xPos = yPos = 20;
             pen = new Pen(Color.Black, 3);
+            
         }
 
         public void DrawLine(int toX,int toY) {
 
             g.DrawLine(pen,xPos,yPos, toX, toY);
-            xPos = toX;
-            yPos = toY;
+            
         }
 
         public void DrawSqr(int w) {
@@ -37,6 +37,24 @@ namespace Assignment1
 
             g.DrawRectangle(pen, xPos, yPos, xPos + w, yPos + h);
 
+        }
+
+        public void DrawCirc(int r)
+        {
+            g.DrawEllipse(pen, xPos, yPos, xPos + (r * 2), yPos + (r * 2));
+        }
+
+        public void DrawTo(int tox, int toy)
+        {
+            g.DrawLine(pen, xPos, yPos, tox, toy);
+            //update turtle position to the end of the line
+            xPos = tox;
+            yPos = toy;
+        }
+
+        public void MoveTo(int tox,int toy){
+            xPos = tox;
+            yPos = toy;
         }
     }
 }
