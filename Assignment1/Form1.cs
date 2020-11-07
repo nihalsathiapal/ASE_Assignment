@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +19,9 @@ namespace Assignment1
         DrawTo DrawTo;
         MoveTo MoveTo;
         CmdLine command;
+        Parser parser;
         Bitmap bitmap = new Bitmap(600, 480);
-        
+        TextBox tb;
 
         public Form1()
         {
@@ -28,6 +30,7 @@ namespace Assignment1
             DrawTo = new DrawTo(Graphics.FromImage(bitmap));
             MoveTo = new MoveTo(Graphics.FromImage(bitmap));
             command = new CmdLine(Graphics.FromImage(bitmap));
+            parser = new Parser(Graphics.FromImage(bitmap));
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -42,32 +45,9 @@ namespace Assignment1
             if(e.KeyCode== Keys.Enter)
             {
                 String cmd = textBox1.Text;
-                
-                command.parseCmd(cmd);
-               /* if (cmd == "sqr")
-                {
-                    canvas.DrawSqr(23);
-                }
-                if (cmd == "line")
-                {
-                    canvas.DrawLine(100,100);
-                }
-                if (cmd == "rect")
-                {
-                    canvas.DrawRect(23,50);
-                }
-                if (cmd == "drawto")
-                {
-                    
-                    DrawTo.DrawLine(200, 100);
-
-                }
-                if (cmd == "moveto")
-                {
-                    MoveTo.moveto(300, 100);
-
-                }
-               */
+                cmd = cmd.Trim().ToLower();
+                String[] line2 = Regex.Split(cmd,"\r\n");
+                parser.parseLine(line2);
                 textBox1.Text ="";
                 Refresh();
             }
@@ -81,5 +61,7 @@ namespace Assignment1
             canvas.DrawCirc(23);
             Refresh();
         }
+
+
     }
 }

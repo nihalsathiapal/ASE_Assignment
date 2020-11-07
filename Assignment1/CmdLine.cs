@@ -12,52 +12,82 @@ namespace Assignment1
     {
         Graphics g;
         Canvas canvas;
-        int[] paramInt;
+        DrawTo drawto;
+        MoveTo moveto;
         
-        String[] param = new String[] { };
+        Form1 form1;
+        
+        
         public CmdLine(Graphics gin)
         {
             g = gin;
             canvas = new Canvas(g);
+            drawto = new DrawTo(g);
+            moveto = new MoveTo(g);
         }
 
-        public void parseCmd(String line) {
-            line = line.Trim().ToLower();
+        public void parseCmd(String cmd,int[] paramInt) {
             
-            String[] split = line.Split(' ');
-            
-            String cmd = split[0];
-            
-            
-            String[] param = split[1].Split(',');
-            paramInt = Array.ConvertAll(param, int.Parse);
-           
-            if (cmd == "sqr")
+            if (cmd.Equals("sqr") ==true)
             {
                 if (paramInt.Length != 1)
                 {
-                    canvas.DrawSqr(paramInt[0]);
+                    canvas.DrawString("Invalid Parameter");
+                }
+                else
+                {
+                    canvas.DrawSqr(paramInt[0]);                
                 }
             }
-            if (cmd == "line")
+            if (cmd.Equals("line")==true)
             {
-                Console.WriteLine(paramInt[1]);
-                canvas.DrawLine(paramInt[0], paramInt[1]);
+                if (paramInt.Length != 2)
+                {
+                    canvas.DrawString("Invalid Parameter");
+                }
+                else
+                {
+                    canvas.DrawLine(paramInt[0], paramInt[1]);                    
+                }
             }
-            if (cmd == "rect")
+            if (cmd.Equals("rect") == true)
             {
-                canvas.DrawRect(paramInt[0], paramInt[1]);
+                if (paramInt.Length != 2)
+                {
+                    canvas.DrawString("Invalid Parameter");
+                }
+                else
+                {
+                    canvas.DrawRect(paramInt[0], paramInt[1]);                    
+                }
             }
-            if (cmd == "drawto")
+            if (cmd.Equals("drawto") == true)
             {
-
-                DrawTo.DrawLine(200, 100);
-
+                if (paramInt.Length != 2)
+                {
+                    canvas.DrawString("Invalid Parameter");
+                }
+                else
+                {
+                    drawto.DrawLine(paramInt[0], paramInt[1]);
+                    
+                }
             }
-            if (cmd == "moveto")
+            if (cmd.Equals("circ") == true)
             {
-                MoveTo.moveto(300, 100);
+                if (paramInt.Length != 1)
+                {
+                    canvas.DrawString("Invalid Parameter");
+                }
+                else
+                {
+                    canvas.DrawCirc(paramInt[0]);
+                }
             }
+            /*if (cmd.Equals("moveto") == true)
+            {
+                moveto.moveto(300, 100);
+            }*/
         }
     }
 }

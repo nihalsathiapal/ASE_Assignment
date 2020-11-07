@@ -12,12 +12,14 @@ namespace Assignment1
         Graphics g;
         Pen pen;
         int xPos, yPos;
+        Font drawFont = new Font("Arial", 16);
+        SolidBrush drawBrush = new SolidBrush(Color.Black);
 
         public Canvas(Graphics gin)
         {
             g = gin;
             xPos = yPos = 20;
-            pen = new Pen(Color.Black, 3);
+            pen = new Pen(Color.Red, 3);
             
         }
 
@@ -55,6 +57,11 @@ namespace Assignment1
         public void MoveTo(int tox,int toy){
             xPos = tox;
             yPos = toy;
+        }
+
+        public void DrawString(String error)
+        {
+            g.DrawString(error,drawFont,drawBrush,10,10);
         }
     }
 }
