@@ -17,6 +17,7 @@ namespace Assignment1
         Canvas canvas;
         DrawTo DrawTo;
         MoveTo MoveTo;
+        CmdLine command;
         Bitmap bitmap = new Bitmap(600, 480);
         
 
@@ -25,7 +26,8 @@ namespace Assignment1
             InitializeComponent();
             canvas = new Canvas(Graphics.FromImage(bitmap));
             DrawTo = new DrawTo(Graphics.FromImage(bitmap));
-            MoveTo = new MoveTo(Graphics.FromImage(bitmap)); ;
+            MoveTo = new MoveTo(Graphics.FromImage(bitmap));
+            command = new CmdLine(Graphics.FromImage(bitmap));
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -39,8 +41,10 @@ namespace Assignment1
         {
             if(e.KeyCode== Keys.Enter)
             {
-                String cmd = textBox1.Text.Trim().ToLower();    
-                if (cmd == "sqr")
+                String cmd = textBox1.Text;
+                
+                command.parseCmd(cmd);
+               /* if (cmd == "sqr")
                 {
                     canvas.DrawSqr(23);
                 }
@@ -63,7 +67,7 @@ namespace Assignment1
                     MoveTo.moveto(300, 100);
 
                 }
-
+               */
                 textBox1.Text ="";
                 Refresh();
             }
