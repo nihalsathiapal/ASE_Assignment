@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\UnitTestProject1.csproj": {}
+    "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\AssignmentTests.csproj": {}
   },
   "projects": {
     "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\Assignment1\\Assignment1.csproj": {
@@ -14,14 +14,14 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\UnitTestProject1.csproj": {
+    "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\AssignmentTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\UnitTestProject1.csproj",
-        "projectName": "UnitTestProject1",
-        "projectPath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\UnitTestProject1.csproj",
+        "projectUniqueName": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\AssignmentTests.csproj",
+        "projectName": "AssignmentTests",
+        "projectPath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\AssignmentTests.csproj",
         "packagesPath": "C:\\Users\\Nihal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\obj\\",
+        "outputPath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nihal\\AppData\\Roaming\\NuGet\\NuGet.Config",

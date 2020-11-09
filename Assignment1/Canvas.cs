@@ -24,7 +24,7 @@ namespace Assignment1
         public Canvas(Graphics gin)
         {
             this.g = gin;
-            
+            g.DrawRectangle(pen, 0,0, 3, 3); 
             
         }
 
@@ -40,9 +40,9 @@ namespace Assignment1
 
         }
 
-        public void DrawRect(int h,int w) {
+        public void DrawRect(int w,int h) {
 
-            g.DrawRectangle(pen2, cursor.xpos, cursor.ypos, (xpos + w), (ypos + h));
+            g.DrawRectangle(pen2, cursor.xpos, cursor.ypos, xpos + w, ypos + h);
 
         }
 
@@ -51,26 +51,15 @@ namespace Assignment1
             g.DrawEllipse(pen2, cursor.xpos, cursor.ypos, xpos + (r * 2), ypos + (r * 2));
         }
 
-        /*public void DrawTri()
+        public void DrawTri(int w, int h)
         {
-            float xDiff = oppPt.X - keyPt.X;
-            float yDiff = oppPt.Y - keyPt.Y;
-            float xMid = (oppPt.X + keyPt.X) / 2;
-            float yMid = (oppPt.Y + keyPt.Y) / 2;
-
-            // Define path with the geometry information only
-            var path = new GraphicsPath();
-            path.AddLines(new PointF[] {keyPt,new PointF(xMid + yDiff/2, yMid-xDiff/2),oppPt,});
-            path.CloseFigure();
-
-            // Fill Triangle
-            g.FillPath(brush, path);
-
-            // Draw Triangle
-            g.DrawPath(pen, path);
-        }*/
-
-        public void DrawTo(int xpos,int ypos,int tox, int toy)
+            int half = w/ 2;
+            g.DrawRectangle(pen2, cursor.xpos, cursor.ypos, xpos + w, ypos + h);
+            g.DrawLine(pen2, cursor.xpos, cursor.ypos + h, cursor.xpos + w, cursor.ypos + h); // base
+            g.DrawLine(pen2, cursor.xpos, cursor.ypos + h, cursor.xpos + half, cursor.ypos); // left side
+            g.DrawLine(pen2, cursor.xpos + w, cursor.ypos + h, cursor.xpos + half, cursor.ypos);
+        }
+            public void DrawTo(int xpos,int ypos,int tox, int toy)
         {
             g.DrawLine(pen2, cursor.xpos, cursor.ypos, tox, toy);
         }

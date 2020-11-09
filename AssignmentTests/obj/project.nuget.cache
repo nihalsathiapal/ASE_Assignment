@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FY9xsUga8uz2e6GazzguAIsCyKMmV7B9rdG7SxpvtrQbyBe7M9Li77UfNTFpOTPEET6tpxWI5fRmV/ESp/tpZw==",
+  "dgSpecHash": "F+QT1hnyVeRc+a0o0mBUpkZCimYCXcWJBWEgc6FW+svcKkTNJrr24+P0DNsUlgyp3PxKJCcJ6MB0lgYOCcFcPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\UnitTestProject1\\UnitTestProject1.csproj",
+  "projectFilePath": "C:\\Users\\Nihal\\source\\repos\\nihalsathiapal\\ASE_Assignment\\AssignmentTests\\AssignmentTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nihal\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\Nihal\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

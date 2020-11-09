@@ -18,7 +18,7 @@ namespace Assignment1
         }
         public MoveTo(int tox,int toy): base(tox,toy)
         {                
-            Console.WriteLine("move to" + tox + toy);
+            
             SetValues(tox, toy);
             
         }

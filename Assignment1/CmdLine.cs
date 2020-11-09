@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
+
+    /// <summary>
+    /// The class Cmdline takes care of the commands coming from the command line
+    /// i.e. the textbox in the form.
+    /// </summary>
     class CmdLine
     {
         Pen pen = new Pen(Color.Red, 2);
@@ -28,6 +33,11 @@ namespace Assignment1
         }
 
 
+        /// <summary>
+        /// This method checks if the commands and parameters are correct and proceed accordingly.
+        /// </summary>
+        /// <param name="cmd">is the command</param>
+        /// <param name="paramInt">is array of parameters</param>
         public void parseCmd(String cmd,int[] paramInt) {
             
             if (cmd.Equals("sqr") ==true)
@@ -87,7 +97,7 @@ namespace Assignment1
                 }
                 else
                 {
-                   // canvas.DrawTri();
+                   canvas.DrawTri(paramInt[0], paramInt[1]);
                 }
             }
             if (cmd.Equals("moveto") == true)

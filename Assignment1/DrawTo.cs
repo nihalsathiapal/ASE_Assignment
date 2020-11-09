@@ -22,10 +22,5 @@ namespace Assignment1
         {         
             
         }
-
-        public void draw(Graphics gin)
-        {
-            g = gin;
-        }
     }
 }

@@ -23,6 +23,7 @@ namespace Assignment1
         Bitmap bitmap2 = new Bitmap(800, 800);
         Pen pen = new Pen(Color.Red, 2);
         
+     
         public Form1()
         {
             InitializeComponent();

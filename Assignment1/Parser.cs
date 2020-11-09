@@ -18,6 +18,11 @@ namespace Assignment1
         int x, y, tox, toy;
         Graphics g;
         Pen pen = new Pen(Color.Red, 2);
+
+        public Parser()
+        {
+
+        }
         public Parser(Graphics g)
         {
             this.g = g;
@@ -28,7 +33,7 @@ namespace Assignment1
         public void parseLine(String[] line)
         {
             
-            String[] commands = { "sqr", "circle", "rect", "drawto", "moveto","clear" };
+            String[] commands = { "sqr", "circle", "rect", "drawto", "moveto","clear" ,"tri"};
 
             if (line.Length == 1)
             {                
