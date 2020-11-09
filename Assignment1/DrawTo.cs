@@ -10,21 +10,22 @@ namespace Assignment1
     class DrawTo: Cursor
     {
         MoveTo moveto;
-        Cursor cursor;
         Graphics g;
         Pen pen = new Pen(Color.Black);
         
         int xpos=10,ypos=10,tox,toy; //turtle position
-
-        public DrawTo(int xpos,int ypos,int tox,int toy): base(xpos,ypos,tox,toy)
+        public DrawTo()
         {
 
-            this.tox = tox;
-            this.toy = toy;
+        }
+        public DrawTo(int xpos,int ypos,int tox,int toy): base(xpos,ypos)
+        {         
             
-            Console.WriteLine("drawto b4update pen" + xpos + ypos + tox+ toy);
-            SetValues(tox, toy);
         }
 
+        public void draw(Graphics gin)
+        {
+            g = gin;
+        }
     }
 }

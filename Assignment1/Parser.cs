@@ -10,14 +10,17 @@ namespace Assignment1
 {
     class Parser
     {
+        Clear clear;
         CmdLine cmdline;
         int[] paramInt;
         String[] param,line2;
         Canvas canvas;
         int x, y, tox, toy;
-
+        Graphics g;
+        Pen pen = new Pen(Color.Red, 2);
         public Parser(Graphics g)
-        {            
+        {
+            this.g = g;
             cmdline = new CmdLine(g);
             canvas = new Canvas(g);
         }
@@ -25,7 +28,7 @@ namespace Assignment1
         public void parseLine(String[] line)
         {
             
-            String[] commands = { "sqr", "circle", "rect", "drawto", "moveto" };
+            String[] commands = { "sqr", "circle", "rect", "drawto", "moveto","clear" };
 
             if (line.Length == 1)
             {                
@@ -35,8 +38,7 @@ namespace Assignment1
                 {
                     if (cmd.Equals("clear") == true)
                     {
-
-                        canvas.DrawString("Clear");
+                        clear = new Clear(g);                       
 
                     }
                     else if (split.Length < 2)

@@ -16,13 +16,15 @@ namespace Assignment1
         Canvas canvas;
         DrawTo drawto;
         MoveTo moveto;
-        int xpos=10, ypos=10;
+        Cursor cursor;
+        int xpos, ypos,x,y,tox,toy;
 
         public CmdLine(Graphics gin) 
         {
             this.g = gin;
-            canvas = new Canvas(g);            
-           
+            canvas = new Canvas(g);
+            cursor = new Cursor();
+            
         }
 
 
@@ -59,8 +61,10 @@ namespace Assignment1
                 }
                 else
                 {
-                    g.DrawLine(pen2, xpos, ypos, paramInt[0], paramInt[1]);
-                    g.DrawRectangle(pen, paramInt[0], paramInt[1], 3, 3);
+                    g.Clear(Color.Gray);
+                    drawto = new DrawTo(xpos,ypos,paramInt[0], paramInt[1]);                    
+                    canvas.DrawTo(xpos, ypos,paramInt[0], paramInt[1]);
+                    canvas.DrawCursor(paramInt[0], paramInt[1]);
 
                 }
             }
@@ -88,10 +92,8 @@ namespace Assignment1
             }
             if (cmd.Equals("moveto") == true)
             {
-                moveto = new MoveTo(xpos,ypos,paramInt[0], paramInt[1]);
-                g.Clear(Color.Transparent);
-                g.DrawRectangle(pen, paramInt[0], paramInt[1], 3, 3);
-
+                moveto = new MoveTo(paramInt[0], paramInt[1]);
+                canvas.DrawCursor(paramInt[0], paramInt[1]);                
 
             }
         }

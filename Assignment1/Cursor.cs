@@ -9,14 +9,29 @@ namespace Assignment1
 {
     class Cursor
     {
-        Pen pen = new Pen(Color.Red, 2);
-        int tox=10, toy=10;
-        private int xpos,ypos;
-        public Cursor(int x,int y,int tox, int toy)
+        Pen pen = new Pen(Color.Red, 2);        
+        public int xpos,ypos;        
+        Graphics g;
+        Canvas canvas;
+        public Cursor()
         {
-            x = tox;
-            y = toy;
-            Console.WriteLine("cursor xpos=" + tox + "toY=" + toy);
+            
+        }
+
+        public Cursor(Graphics gin)
+        {
+            this.g = gin;
+            canvas = new Canvas(g);
+            
+            Console.WriteLine("Cursor" + X + ypos);
+        }
+
+        public Cursor(int x,int y)
+        {
+            xpos = x;
+            ypos = y;
+            //canvas.DrawCursor(xpos, ypos);
+            Console.WriteLine("Cursor wparam" + X + ypos);
         }
         
         public int X
@@ -48,7 +63,10 @@ namespace Assignment1
             this.xpos = x;
             this.ypos = y;
             
+            //drawcursor(xpos,ypos);
         }
-       
+
+        
+
     }
 }

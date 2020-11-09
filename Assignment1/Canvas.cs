@@ -14,41 +14,41 @@ namespace Assignment1
     class Canvas
     {
         Graphics g;
-        Pen pen;
+        Pen pen = new Pen(Color.Red, 2);
+        Pen pen2 = new Pen(Color.Black, 2);
         int xpos, ypos;
         Font drawFont = new Font("Arial", 16);
         SolidBrush drawBrush = new SolidBrush(Color.Black);
-        
+        Cursor cursor = new Cursor();
 
         public Canvas(Graphics gin)
         {
-            g = gin;
+            this.g = gin;
             
-            pen = new Pen(Color.Red, 2);
-            g.DrawRectangle(pen, 10, 10, 3, 3);
+            
         }
 
         public void DrawLine(int toX,int toY) {
 
-            g.DrawLine(pen,xpos,ypos, toX, toY);
+            g.DrawLine(pen2,xpos,ypos, toX, toY);
             
         }
 
         public void DrawSqr(int w) {
 
-            g.DrawRectangle(pen, xpos, ypos, xpos + w, ypos+w);
+            g.DrawRectangle(pen2, cursor.xpos, cursor.ypos, xpos + w, ypos + w);
 
         }
 
         public void DrawRect(int h,int w) {
 
-            g.DrawRectangle(pen, xpos, ypos, xpos + w, ypos + h);
+            g.DrawRectangle(pen2, cursor.xpos, cursor.ypos, (xpos + w), (ypos + h));
 
         }
 
         public void DrawCirc(int r)
         {
-            g.DrawEllipse(pen, xpos, ypos, xpos + (r * 2), ypos + (r * 2));
+            g.DrawEllipse(pen2, cursor.xpos, cursor.ypos, xpos + (r * 2), ypos + (r * 2));
         }
 
         /*public void DrawTri()
@@ -70,23 +70,21 @@ namespace Assignment1
             g.DrawPath(pen, path);
         }*/
 
-        public void DrawTo(int tox, int toy)
+        public void DrawTo(int xpos,int ypos,int tox, int toy)
         {
-            g.DrawLine(pen, xpos, ypos, tox, toy);
-            //update turtle position to the end of the line
-           /* xPos = tox;
-            yPos = toy;*/
-        }
-
-        public void MoveTo(int tox,int toy){
-            /*xPos = tox;
-            yPos = toy;*/
+            g.DrawLine(pen2, cursor.xpos, cursor.ypos, tox, toy);
         }
 
         public void DrawString(String error)
         {
             g.DrawString(error,drawFont,drawBrush,10,10);
         }
-        
+
+        public void DrawCursor(int tox, int toy)
+        {
+            g.DrawRectangle(pen, tox, toy, 3, 3);
+            cursor.SetValues(tox, toy);
+        }
+
     }
 }
