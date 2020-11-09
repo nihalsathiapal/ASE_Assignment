@@ -10,21 +10,21 @@ namespace Assignment1
 {
     class CmdLine
     {
+        Pen pen = new Pen(Color.Red, 2);
+        Pen pen2 = new Pen(Color.Black, 2);
         Graphics g;
         Canvas canvas;
         DrawTo drawto;
         MoveTo moveto;
-        
-        Form1 form1;
-        
-        
-        public CmdLine(Graphics gin)
+        int xpos=10, ypos=10;
+
+        public CmdLine(Graphics gin) 
         {
-            g = gin;
-            canvas = new Canvas(g);
-            drawto = new DrawTo(g);
-            moveto = new MoveTo(g);
+            this.g = gin;
+            canvas = new Canvas(g);            
+           
         }
+
 
         public void parseCmd(String cmd,int[] paramInt) {
             
@@ -32,29 +32,19 @@ namespace Assignment1
             {
                 if (paramInt.Length != 1)
                 {
-                    canvas.DrawString("Invalid Parameter");
+                    canvas.DrawString("Invalid Parameter\n");
                 }
                 else
                 {
-                    canvas.DrawSqr(paramInt[0]);                
+                    canvas.DrawSqr(paramInt[0]);
                 }
             }
-            if (cmd.Equals("line")==true)
-            {
-                if (paramInt.Length != 2)
-                {
-                    canvas.DrawString("Invalid Parameter");
-                }
-                else
-                {
-                    canvas.DrawLine(paramInt[0], paramInt[1]);                    
-                }
-            }
+            
             if (cmd.Equals("rect") == true)
             {
                 if (paramInt.Length != 2)
                 {
-                    canvas.DrawString("Invalid Parameter");
+                    canvas.DrawString("Invalid Parameter\n");
                 }
                 else
                 {
@@ -65,29 +55,45 @@ namespace Assignment1
             {
                 if (paramInt.Length != 2)
                 {
-                    canvas.DrawString("Invalid Parameter");
+                    canvas.DrawString("Invalid Parameter\n");
                 }
                 else
                 {
-                    drawto.DrawLine(paramInt[0], paramInt[1]);
-                    
+                    g.DrawLine(pen2, xpos, ypos, paramInt[0], paramInt[1]);
+                    g.DrawRectangle(pen, paramInt[0], paramInt[1], 3, 3);
+
                 }
             }
-            if (cmd.Equals("circ") == true)
+            if (cmd.Equals("circle") == true)
             {
                 if (paramInt.Length != 1)
                 {
-                    canvas.DrawString("Invalid Parameter");
+                    canvas.DrawString("Invalid Parameter\n");
                 }
                 else
                 {
                     canvas.DrawCirc(paramInt[0]);
                 }
             }
-            /*if (cmd.Equals("moveto") == true)
+            if (cmd.Equals("tri") == true)
             {
-                moveto.moveto(300, 100);
-            }*/
+                if (paramInt.Length != 1)
+                {
+                    canvas.DrawString("Invalid Parameter\n");
+                }
+                else
+                {
+                   // canvas.DrawTri();
+                }
+            }
+            if (cmd.Equals("moveto") == true)
+            {
+                moveto = new MoveTo(xpos,ypos,paramInt[0], paramInt[1]);
+                g.Clear(Color.Transparent);
+                g.DrawRectangle(pen, paramInt[0], paramInt[1], 3, 3);
+
+
+            }
         }
     }
 }

@@ -7,19 +7,25 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class MoveTo
+    class MoveTo: Cursor
     {
-        int xpos=10 ,ypos=10;
-        Graphics g;
-        public MoveTo(Graphics gin)
+        int tox ,toy;
+        CmdLine cmd;
+        Pen pen = new Pen(Color.Red, 2);
+        DrawTo drawto;
+        Cursor cursor;
+        Graphics gin;
+
+        public MoveTo(int xpos,int ypos,int tox,int toy): base(xpos,ypos,tox,toy)
         {
-            g = gin;
+            
+            this.tox = tox;
+            this.toy = toy;
+            X = tox;
+            Y = toy;
+            SetValues(tox, toy);
         }
 
-        public void moveto(int xpos,int ypos,int tox, int toy)
-        {
-            xpos = tox;
-            ypos = toy;
-        }
     }
 }
+ 

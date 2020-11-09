@@ -7,25 +7,24 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
-    class DrawTo
+    class DrawTo: Cursor
     {
-
+        MoveTo moveto;
+        Cursor cursor;
         Graphics g;
         Pen pen = new Pen(Color.Black);
-        int xpos = 10, ypos = 10; //turtle position
+        
+        int xpos=10,ypos=10,tox,toy; //turtle position
 
-        public DrawTo(Graphics g)
+        public DrawTo(int xpos,int ypos,int tox,int toy): base(xpos,ypos,tox,toy)
         {
-            this.g=g;
-                        
+
+            this.tox = tox;
+            this.toy = toy;
+            
+            Console.WriteLine("drawto b4update pen" + xpos + ypos + tox+ toy);
+            SetValues(tox, toy);
         }
 
-        public void DrawLine(int tox,int toy)
-        {
-            g.DrawLine(pen, xpos, ypos, tox, toy);
-            //update turtle position to the end of the line
-            xpos = tox;
-            ypos = toy;
-        }
     }
 }

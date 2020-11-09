@@ -14,23 +14,25 @@ namespace Assignment1
 {
     public partial class Form1 : Form
     {
-
+        Clear clear;
         Canvas canvas;
         DrawTo DrawTo;
         MoveTo MoveTo;
         CmdLine command;
         Parser parser;
-        Bitmap bitmap = new Bitmap(600, 480);
-        TextBox tb;
-
+        Cursor cursor;
+        Bitmap bitmap = new Bitmap(800, 800);
+        Pen pen = new Pen(Color.Red, 2);
+        
         public Form1()
         {
             InitializeComponent();
             canvas = new Canvas(Graphics.FromImage(bitmap));
-            DrawTo = new DrawTo(Graphics.FromImage(bitmap));
-            MoveTo = new MoveTo(Graphics.FromImage(bitmap));
+            /*DrawTo = new DrawTo(Graphics.FromImage(bitmap));*/            
             command = new CmdLine(Graphics.FromImage(bitmap));
             parser = new Parser(Graphics.FromImage(bitmap));
+            
+
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -45,9 +47,16 @@ namespace Assignment1
             if(e.KeyCode== Keys.Enter)
             {
                 String cmd = textBox1.Text;
-                cmd = cmd.Trim().ToLower();
-                String[] line2 = Regex.Split(cmd,"\r\n");
-                parser.parseLine(line2);
+                if (cmd == "")
+                {
+                    canvas.DrawString("Please enter Code");
+                }
+                else
+                {
+                    cmd = cmd.Trim().ToLower();
+                    String[] line2 = Regex.Split(cmd, "\r\n");
+                    parser.parseLine(line2);
+                }
                 textBox1.Text ="";
                 Refresh();
             }
@@ -56,12 +65,33 @@ namespace Assignment1
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            button1.Text = "Pressed";
-            canvas.DrawRect(23, 50);
-            canvas.DrawCirc(23);
+            String cmd = textBox1.Text;
+            if (cmd == "")
+            {
+                canvas.DrawString("Please enter Code");
+            }
+            else
+            {
+                cmd = cmd.Trim().ToLower();
+                String[] line2 = Regex.Split(cmd, "\r\n");
+                parser.parseLine(line2);
+            }
+            textBox1.Text = "";
+            Refresh();            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Graphics g = Graphics.FromImage(bitmap);
+            clear = new Clear(g);
+            g.DrawRectangle(pen, 10, 10, 3, 3);
+            textBox1.Text = "";
             Refresh();
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
